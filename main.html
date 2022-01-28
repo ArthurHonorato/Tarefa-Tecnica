@@ -1,0 +1,104 @@
+<!-- Autor: Arthur Honorato dos Santos Silva -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Essas são as bibliotecas de CSS e funções que utilizei, jQuery e Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Dados renda per capta</title>
+    <style>
+        body{
+            background-color: #EAF2F8;
+        }
+    </style>
+
+</head>
+<body>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>   
+    <!-- Função com jQuery para criar uma máscara no campo de digitação do CEP do usuário, para que tenha um traço depois de digitar 3 números -->
+    <script type="text/javascript">
+        $(document).ready(function () { 
+            var $campocep = $("#cepid");
+            $campocep.mask('00000-000', {reverse: true});
+        });
+    </script>
+    <center>
+        <form action="/retorno" method="POST">
+        <br>
+        <br>
+        <br>
+        <br>
+        <!-- Formulário criado com a ajuda de Bootstrap para ter uma interface mais visualmente interessante. -->
+        <!-- Cada input é um dos campos para a coleta de dados, cada span é um indicativo ddo campo a ser utilizado (ex: Nome, CEP...) -->
+        <!-- e o button no final para enviar os dados para o back-end. Utilizando center para centralizar tudo. -->
+        <div class="container">
+            <br>
+            <br>
+            <div class="col-md-12">
+               <h1 class="main-title">DADOS PARA RENDA PER CAPTA</h1>
+            </div>
+            
+            <br>
+            <div class="row">
+              <div class="col">
+                <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Nome</span>
+                    </div> 
+                    <input name="nome" type="text" class="form-control" placeholder="Insira seu nome" aria-label="Nome" aria-describedby="basic-addon1">
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col">
+                <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">CEP <font color="red">*</font> </span>
+                    </div>    
+                <input name="cep" id = "cepid" type="text" class="form-control" placeholder="Insira seu CEP" aria-label="cep" aria-describedby="basic-addon1">
+              </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                  <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Renda <font color="red">*</font> </span>
+                      </div>
+                      <input name="renda" id = "rendaid" type="number" class="form-control" placeholder="Insira sua renda" aria-label="renda" aria-describedby="basic-addon1" onchange="this.value = this.value.replace(/,/g, '.')" step='0.01'>
+                    </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col">
+                  <div class="input-group input-group-lg">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Dependentes <font color="red">*</font> </span>
+                        </div> 
+                      <input name="dependentes" id = "dependentesid" type="number" class="form-control" placeholder="Insira o número de dependentes da renda" aria-label="dependentes" aria-describedby="basic-addon1">
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-success btn-lg">Enviar</button>
+                </div>
+              </div>
+              <br>
+              <br>
+          </div>
+        </form>
+        <h5>Campos com <font color="red">*</font> são obrigatórios!</h5>
+    </center>
+</body>
+</html>
