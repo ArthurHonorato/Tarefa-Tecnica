@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "app-module-path": "^2.2.0",
+    "axios": "^0.24.0",
+    "body-parser": "^1.19.1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "express-handlebars": "^6.0.2",
+    "express-session": "^1.17.2",
+    "fetch": "^1.1.0",
+    "handlebars": "^4.7.7",
+    "request": "^2.88.2",
+    "selfsigned": "^1.10.11",
+    "view": "^0.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
